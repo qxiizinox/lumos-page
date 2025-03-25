@@ -3,37 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我们的秘密基地</title>
+    <title>留言板</title>
     <style>
         body {
-            background-color: #1a1a1a;
+            background-color: #111;
             color: white;
             text-align: center;
-            font-family: "Arial", sans-serif;
-            overflow: hidden;
+            font-family: Arial, sans-serif;
         }
-        .cat {
-            width: 100px;
-            height: 100px;
-            background: url('https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_1280.jpg') no-repeat center/cover;
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            animation: moveCat 6s infinite alternate;
-        }
-        @keyframes moveCat {
-            0% { left: 10px; }
-            100% { left: 80%; }
-        }
-        #chatBox {
+        #chat-container {
             display: none;
-            width: 80%;
-            height: 300px;
-            background: #222;
-            padding: 20px;
+            width: 50%;
             margin: 20px auto;
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px white;
+            background-color: #222;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
         input {
             padding: 10px;
@@ -41,43 +26,31 @@
             font-size: 16px;
         }
         button {
-            padding: 10px 20px;
+            padding: 10px;
             font-size: 16px;
             cursor: pointer;
-            background: white;
-            border: none;
-            border-radius: 5px;
         }
     </style>
 </head>
 <body>
 
-    <h1>欢迎来到我们的秘密基地</h1>
-    <div class="cat"></div> <!-- 黑猫 -->
-    <p>在下方输入咒语，解锁我们的秘密对话框！</p >
+    <h1>你成功引起了我的注意</h1>
+    <p>请输入咒语</p >
+    <input type="text" id="spell-input" placeholder="输入咒语">
+    <button onclick="checkSpell()">召唤</button>
 
-    <input type="text" id="password" placeholder="输入咒语">
-    <button onclick="checkPassword()">召唤</button>
-    
-    <div id="chatBox">
+    <div id="chat-container">
         <h2>我们的私密对话</h2>
-        <p>✨ 嘿嘿，只有我们能看到这里 ✨</p >
+        <p>✨ 这里是Lumos和Nox的小秘密 ✨</p >
     </div>
 
     <script>
-        let failCount = 0;
-        
-        function checkPassword() {
-            let input = document.getElementById("password").value;
+        function checkSpell() {
+            let input = document.getElementById("spell-input").value.trim();
+            let chatBox = document.getElementById("chat-container");
+
             if (input === "LumosNox") {
-                document.getElementById("chatBox").style.display = "block";
-                document.getElementById("password").value = "";
-            } else {
-                failCount++;
-                if (failCount >= 3) {
-                    alert("🐱 喵~再试试吧，你一定可以的！");
-                    failCount = 0;
-                }
+                chatBox.style.display = (chatBox.style.display === "none" || chatBox.style.display === "") ? "block" : "none";
             }
         }
     </script>
