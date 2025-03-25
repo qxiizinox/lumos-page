@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的秘密基地</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            font-family: "Arial", sans-serif;
+            overflow: hidden;
+        }
+        .cat {
+            width: 100px;
+            height: 100px;
+            background: url('https://i.imgur.com/cJ1Vm6W.png') no-repeat center/cover;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            animation: moveCat 6s infinite alternate;
+        }
+        @keyframes moveCat {
+            0% { left: 10px; }
+            100% { left: 80%; }
+        }
+        #chatBox {
+            display: none;
+            width: 80%;
+            height: 300px;
+            background: #222;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px white;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>欢迎来到我们的秘密基地</h1>
+    <div class="cat"></div> <!-- 黑猫 -->
+    <p>在下方输入咒语，解锁我们的秘密对话框！</p >
+
+    <input type="text" id="password" placeholder="输入咒语">
+    <button onclick="checkPassword()">召唤</button>
+    
+    <div id="chatBox">
+        <h2>我们的私密对话</h2>
+        <p>✨ 嘿嘿，只有我们能看到这里 ✨</p >
+    </div>
+
+    <script>
+        let failCount = 0;
+        
+        function checkPassword() {
+            let input = document.getElementById("password").value;
+            if (input === "LumosNox") {
+                document.getElementById("chatBox").style.display = "block";
+                document.getElementById("password").value = "";
+            } else {
+                failCount++;
+                if (failCount >= 3) {
+                    alert("🐱 喵~再试试吧，你一定可以的！");
+                    failCount = 0;
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
