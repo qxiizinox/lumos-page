@@ -2,7 +2,7 @@ function checkSpell() {
     let input = document.getElementById("spell-input").value.trim();
     let chatBox = document.getElementById("chat-container");
 
-    if (input === "LumosNox") {
+    if (input === "lumos") {
         if (chatBox.style.display === "none" || chatBox.style.display === "") {
             chatBox.style.display = "block";
             chatBox.style.animation = "fadeIn 0.5s ease-in-out";
