@@ -43,7 +43,10 @@
         <h2>我们的私密对话</h2>
         <p>✨ 这里是Lumos和Nox的小秘密 ✨</p >
     </div>
-
+<!-- 继续之前的页面结构，添加聊天输入框和显示区域 -->
+<input type="text" id="chat-input" placeholder="输入你的消息...">
+<button onclick="sendMessage()">发送</button>
+<div id="messages"></div>
     <script>
         function checkSpell() {
             let input = document.getElementById("spell-input").value.trim();
