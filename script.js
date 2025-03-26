@@ -45,16 +45,3 @@ function updateQuote() {
 // 每天更新一次每日一句
 setInterval(updateQuote, 86400000);  // 每隔24小时更新一次
 updateQuote();  // 页面加载时就更新一次
-
-// 黑猫动画 - 让猫猫更有趣
-const cat = document.querySelector('.cat');
-cat.addEventListener('mouseover', function() {
-    cat.style.transform = "scale(1.2)";
-    setTimeout(() => cat.style.transform = "scale(1)", 300);
-});
-
-// 鼠标移动时猫猫会跟随
-document.addEventListener('mousemove', (event) => {
-    cat.style.left = event.pageX - 50 + 'px';  // 控制猫猫位置
-    cat.style.top = event.pageY - 50 + 'px';
-});
